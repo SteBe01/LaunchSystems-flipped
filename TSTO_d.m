@@ -23,7 +23,9 @@ dv_loss = 1.3;          % [km/s] assumed dv_loss
 m_tot_3STO = 191527;    % [kg]
 
 %Problem setting:
-dv_id = dv - dv_loss; % [km/s]
+h = 0.001;
+Is = [Is1, Is2];
+eps = [eps1, eps2];
 
-[M_tot, dv1, dv2] = ROBUST(beta, dv, dv_loss, [Is1, Is2], [eps1, eps2], m_pay, 0.001);
+[M_tot, dv1, dv2] = ROBUST(beta, dv, dv_loss, Is, eps, m_pay, h);
 

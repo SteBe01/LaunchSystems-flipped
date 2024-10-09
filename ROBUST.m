@@ -6,6 +6,10 @@ function [M_tot, dv1, dv2] = ROBUST(beta, dv, dv_loss, Is, e, m_pay, h)
 % More stages strategies can be implemented using alpha, beta vectors (dim
 % = #stages -1), plot is a #stages dimensional representation.
 
+if dv_loss > dv
+    error('Losses cannot be greater than the required dv');
+end
+
 %Problem setting:
 dv_id = dv - dv_loss; % [km/s]    dv == dv_req
 g = 9.80665; %[m/s^2]
@@ -20,9 +24,7 @@ c = Is*g/1000; %[m/s]
 % dv = c * log( n ) = -c * log( MR ).  MR = Mf/M0. c = Is * g. n=1/MR.
 
 if nargin < 7
-
     h = 0.01;
-
 end
 
 %Compute alpha extremes:
