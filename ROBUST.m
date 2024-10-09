@@ -17,7 +17,7 @@ c = Is*g/1000; %[m/s]
 % dv2 = (1-alpha) * dv_id + (1-beta) * dv_loss
 %
 % Tsiolkovsky:
-% dv = c * log( 1 / MR ) = -c * log( MR ).  MR = Mf/M0. c = Is * g.
+% dv = c * log( n ) = -c * log( MR ).  MR = Mf/M0. c = Is * g. n=1/MR.
 
 if nargin < 7
 
@@ -25,34 +25,45 @@ if nargin < 7
 
 end
 
-alpha = 0:h:1 ;
+%Compute alpha extremes:
+a_m = 1 - (1 / dv_id) * ( c(2) * log( 1/e(2) ) + ( beta-1 ) * dv_loss ) + 0.01;
+a_M =     (1 / dv_id) * ( c(1) * log( 1/e(1) ) -  beta * dv_loss ) - 0.01;
+if a_M < a_m
+    disp('Launch not possible');
+end
+a_min = max(a_m, 0);
+a_max = min(a_M, 1);
 
-n = length(alpha);
+alpha = a_min:h:a_max ;
 
-dv1 = zeros(n, 1); % [km/s]
-dv2 = zeros(n, 1); % [km/s]
-MR = zeros(2, n); % [kg/kg]
-M = zeros(2, n); % [kg]
-M_tot = zeros(n, 1); % [kg]
+l = length(alpha);
 
-for i = 1:n
+%Initialize:
+dv1 = zeros(l, 1); % [km/s]
+dv2 = zeros(l, 1); % [km/s]
+n = zeros(2, l); % [kg/kg]
+M = zeros(3, l); % [kg]
+M(3, :) = m_pay * ones(1, l); % [kg]
+M_tot = zeros(l, 1); % [kg]
+
+for i = 1:l
 
     a = alpha(i);
 
     dv1(i) = a * dv_id + beta * dv_loss;
-    MR(1, i) = exp( -dv1(i) / c(1) );          %row containing the MR of stages 1
+    n(1, i) = exp( dv1(i) / c(1) );          %row containing the MR of stages 1
     dv2(i) = (1-a) * dv_id + (1-beta) * dv_loss;
-    MR(2, i) = exp( -dv2(i) / c(2) );          %row containing the MR of stages 2
+    n(2, i) = exp( dv2(i) / c(2) );          %row containing the MR of stages 2
 
-    M(2, i) = (1 - MR(2, i)) * m_pay / (MR(2, i) - e(2));             %row containing the Mass of the Second stage wrt each alpha
-    M(1, i) = (1 - MR(1, i)) * (m_pay + M(2, i)) / (MR(1, i) - e(1)); %row containing the Mass of the First stage wrt each alpha
-    M_tot(i) = sum(M(:, i)) + m_pay;     %vector of the total masses for each alpha value
+    M(2, i) = (n(2, i) - 1) * sum(M(:, i)) / (1 - n(2, i)*e(2)); %row containing the Mass of the Second stage wrt each alpha    
+    M(1, i) = (n(1, i) - 1) * sum(M(:, i)) / (1 - n(1, i)*e(1)); %row containing the Mass of the First stage wrt each alpha
+    
+    M_tot(i) = sum(M(:, i));     %vector of the total masses for each alpha value
 
 end
 
-MR  %controlla calcolo m1, m2
-grid on
 plot(alpha, M_tot)
+grid on
 
 end
 
