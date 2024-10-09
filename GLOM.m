@@ -21,4 +21,4 @@ e = [eps1 eps2 eps3]';
 m_pay = 5000;           % [kg]
 dv = 10;                % [km/s]
 
-[m_stag, m_tot, m_prop] = TANDEM(Is, e, dv, m_pay);
+[m_stag, m_tot, m_prop] = TANDEM(Is, e, dv, m_pay, 1);

@@ -1,4 +1,4 @@
-function [m_stag, m_tot, m_prop] = TANDEM(Is, e, dv, m_pay)
+function [m_stag, m_tot, m_prop] = TANDEM(Is, e, dv, m_pay, fsolveOut)
 %This function computes the optimal mass distribution and values between
 %stages for a tandem configuration.
 % INPUTS: 
@@ -19,7 +19,13 @@ c = Is*g/1000; %[m/s]
 n = length(c);
 
 fun = @(lambda) dv - c'*log(lambda*c-1) + log(lambda)*sum(c) + sum(c.*log(c.*e));
-lambda = fsolve(fun, 1);
+
+if fsolveOut == 0
+    options = optimset('Display','off');
+else
+    options = optimset('Display','on');
+end
+lambda = fsolve(fun, 1, options);
 
 m = (lambda.*c-1)./(lambda.*c.*e);
 

@@ -30,11 +30,10 @@ m_prop_vect = m_tot_vect;
 for i1 = 1:length(eps1_vect)
     for i2 = 1:length(eps1_vect)
         for i3 = 1:length(eps1_vect)
-            [m_stag_temp, m_tot_temp, m_prop_temp] = TANDEM(Is, e, dv, m_pay);
+            [m_stag_temp, m_tot_temp, m_prop_temp] = TANDEM(Is, e, dv, m_pay, 0);
             m_stag_vect(:,:,i1,i2,i3) = m_stag_temp;
             m_tot_vect(:,:,i1,i2,i3) = m_tot_temp;
             m_prop_vect(:,:,i1,i2,i3) = m_prop_temp;
         end
     end
 end
-
