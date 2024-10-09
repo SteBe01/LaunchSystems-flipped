@@ -53,9 +53,9 @@ for i = 1:l
     a = alpha(i);
 
     dv1(i) = a * dv_id + beta * dv_loss;
-    n(1, i) = exp( dv1(i) / c(1) );          %row containing the MR of stages 1
+    n(1, i) = exp( dv1(i) / c(1) );          %row containing the n of stages 1
     dv2(i) = (1-a) * dv_id + (1-beta) * dv_loss;
-    n(2, i) = exp( dv2(i) / c(2) );          %row containing the MR of stages 2
+    n(2, i) = exp( dv2(i) / c(2) );          %row containing the n of stages 2
 
     M(2, i) = (n(2, i) - 1) * sum(M(:, i)) / (1 - n(2, i)*e(2)); %row containing the Mass of the Second stage wrt each alpha    
     M(1, i) = (n(1, i) - 1) * sum(M(:, i)) / (1 - n(1, i)*e(1)); %row containing the Mass of the First stage wrt each alpha
@@ -64,7 +64,16 @@ for i = 1:l
 
 end
 
-plot(alpha, M_tot)
+figure(1);
+plot(alpha, M_tot);
+xlabel('alpha');
+ylabel('M_{tot} [kg]');
+grid on
+
+figure(2);
+plot(dv1, M_tot);
+xlabel('Staging speed [km/s]');
+ylabel('M_{tot} [kg]');
 grid on
 
 end
