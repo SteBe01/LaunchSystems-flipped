@@ -13,9 +13,9 @@ beta = 1;
 
 %Assumptions:
 Is1 = 400;              % [s]
-Is2 = 350;              % [s]
-eps1 = 0.10;
-eps3 = 0.2;
+Is2 = 402;              % [s]
+eps1 = 0.1;
+eps2 = 0.2;
 dv_loss = 1.3;          % [km/s] assumed dv_loss
 
 %Previous results:
@@ -24,5 +24,5 @@ m_tot_3STO = 191527;    % [kg]
 %Problem setting:
 dv_id = dv - dv_loss; % [km/s]
 
-
+[M_tot, dv1, dv2] = ROBUST(beta, dv, dv_loss, [Is1, Is2], [eps1, eps2], m_pay, 0.001);
 
