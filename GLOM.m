@@ -8,14 +8,14 @@
 clear, clc
 close all
 
-Is1 = 400;              % [s]
-Is2 = 350;              % [s]
-Is3 = 300;              % [s]
+Is1 = 250;              % [s]
+Is2 = 340;              % [s]
+Is3 = 410;              % [s]
 Is = [Is1 Is2 Is3]';
 
-eps1 = 0.1;
-eps2 = 0.15;
-eps3 = 0.2;
+eps1 = 0.07;
+eps2 = 0.11;
+eps3 = 0.15;
 e = [eps1 eps2 eps3]';
 
 m_pay = 5000;           % [kg]

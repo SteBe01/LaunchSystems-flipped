@@ -1,6 +1,7 @@
 function [m_stag, m_tot, m_prop] = TANDEM(Is, e, dv, m_pay, fsolveOut)
-%This function computes the optimal mass distribution and values between
-%stages for a tandem configuration.
+ 
+% This function computes the optimal mass distribution and values between
+% stages for a tandem configuration.
 % INPUTS: 
 % Is : [nx1] [s] vector of the impulses of different stages
 % e  : [nx1] [1] vector of the structural mass indexes of different stages
