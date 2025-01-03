@@ -1,4 +1,4 @@
-function [M_tot, dv1, dv2] = ROBUST(beta, dv, dv_loss, Is, e, m_pay, h)
+function [M_tot, dv1, dv2, MASS] = ROBUST(beta, dv, dv_loss, Is, e, m_pay, h)
 %ROBUST applies the "brute force" method to compare the dv balance between
 %stages to find the optimal mass for the launchers.
 % First version: 09/10/2024
@@ -64,6 +64,13 @@ for i = 1:l
 
 end
 
+MASS.M0_min = min(M_tot);
+c = find( M_tot == min(M_tot) );
+MASS.stg2 = M(2, c); 
+MASS.stg1 = M(1, c); 
+MASS.prop2 = MASS.stg2 * (1-e(2));
+MASS.prop1 = MASS.stg1 * (1-e(1));
+
 figure(1);
 plot(alpha, M_tot);
 xlabel('alpha');
@@ -71,7 +78,8 @@ ylabel('M_{tot} [kg]');
 grid on
 
 figure(2);
-plot(dv1, M_tot);
+v_staging = dv1 - beta * dv_loss;
+plot(v_staging, M_tot);
 xlabel('Staging speed [km/s]');
 ylabel('M_{tot} [kg]');
 grid on

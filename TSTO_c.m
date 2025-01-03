@@ -5,15 +5,15 @@
 clear, clc
 close all
 
-Is1 = 400;              % [s]
-Is2 = 350;              % [s]
-Is3 = 300;              % [s]
-eps1 = 0.1;
-eps2 = 0.15;
-eps3 = 0.2;
+Is1 = 250;              % [s]
+Is2 = 340;              % [s]
+Is3 = 410;              % [s]
+eps1 = 0.07;
+eps2 = 0.11;
+eps3 = 0.15;
 m_pay = 5000;           % [kg]
 dv = 10;                % [km/s]
-m_tot_3STO = 191527;    % [kg]
+m_tot_3STO = 220420;    % [kg]
 
 %CASE a: Is1'=Is1, Is2'=Is2
 Is_case_a = [Is1, Is2]';

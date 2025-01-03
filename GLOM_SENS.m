@@ -38,3 +38,7 @@ for i1 = 1:length(eps1_vect)
         end
     end
 end
+
+m = m_tot_vect(1,1,:,6,6);
+
+plot(m_tot_vect(:,:,:,6,6), eps1_vect)

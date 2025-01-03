@@ -13,19 +13,21 @@ dv = 10;                % [km/s] dv required. dv_req = dv_id + dv_loss
 beta = 1;
 
 %Assumptions:
-Is1 = 400;              % [s]
-Is2 = 350;              % [s]
-eps1 = 0.1;
-eps2 = 0.2;
+Is1 = 250;              % [s]
+Is2 = 400;              % [s]
+eps1 = 0.06;
+eps2 = 0.11;
 dv_loss = 1.3;          % [km/s] assumed dv_loss
 
 %Previous results:
-m_tot_3STO = 191527;    % [kg]
+m_tot_3STO = 220420;    % [kg]
 
 %Problem setting:
 h = 0.001;
 Is = [Is1, Is2];
 eps = [eps1, eps2];
 
-[M_tot, dv1, dv2] = ROBUST(beta, dv, dv_loss, Is, eps, m_pay, h);
+[M_tot, dv1, dv2, mass] = ROBUST(beta, dv, dv_loss, Is, eps, m_pay, h);
+
+mass_variation = ( mass.M0_min - m_tot_3STO ) / m_tot_3STO;
 
