@@ -42,15 +42,20 @@ dm_perc_c = (mtot_case_c - m_tot_3STO)/m_tot_3STO; %percentage of increase mass 
 clear, clc
 close all
 
-Is1 = 400;              % [s]
-Is2 = 350;              % [s]
+% Is1 = 250;              % [s]
+% Is2 = 410;              % [s]
+% eps1 = 0.07;
+% eps2 = 0.15;
+
+Is1 = 250;              % [s]
+Is2 = 410;              % [s]
 %Is3 = 300;              % [s]
-eps1 = 0.1;
+eps1 = 0.07;
 %eps2 = 0.15;
-eps3 = 0.2;
+eps3 = 0.15;
 m_pay = 5000;           % [kg]
 dv = 10;                % [km/s]
-m_tot_3STO = 191527;    % [kg]
+m_tot_3STO = 220420;    % [kg]
 
 %CASE 2: Is1'=Is1, Is2'=Is2, eps1'=eps1, eps2'=eps3
 Is_case_2 = [Is1, Is2]';

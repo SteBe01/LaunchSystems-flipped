@@ -14,10 +14,10 @@ beta = 1;
 
 %Assumptions:
 Is1 = 250;              % [s]
-Is2 = 400;              % [s]
-eps1 = 0.06;
-eps2 = 0.11;
-dv_loss = 1.3;          % [km/s] assumed dv_loss
+Is2 = 410;              % [s]
+eps1 = 0.07;
+eps2 = 0.15;
+dv_loss = 1.68;          % [km/s] assumed dv_loss (real gravity loss of saturn V by Edberg Costa)
 
 %Previous results:
 m_tot_3STO = 220420;    % [kg]
