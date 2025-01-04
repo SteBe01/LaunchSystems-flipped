@@ -1,0 +1,171 @@
+Falcon 9:
+
+Merlin 1D - Isp: 283 sec
+Merlin Vacuum - Isp: 348 sec
+https://www.wevolver.com/specs/merlin-engine-merlin-1d-falcon-9-falcon-heavy
+
+M0 = 549,054 kg
+https://www.spacex.com/vehicles/falcon-9/
+
+Payload mass = 22,800 kg
+https://www.spacex.com/media/falcon-users-guide-2021-09.pdf
+
+First stage:
+Empty mass: 25,600 kg
+Propellant mass: 395,700 kg
+
+Second stage:
+Empty mass: 3,900 kg
+Propellant mass: 92,670 kg
+https://www.wevolver.com/specs/falcon-9-v12-or-full-thrust-block-5
+
+es1 = 0.048
+es2 = 0.040
+
+------------------------------------------------------------------------------------
+
+Atlas V:
+Payload mass: 12,500 kg
+GLOM: 342,580 kg (considering 5 boosters goes to 546,700 kg)
+
+Stage 1:
+Gross Mass: 306,914 kg
+Empty Mass: 22,461 kg
+Isp: 311 sec
+
+Stage 2:
+Gross Mass: 22,825 kg
+Empty Mass: 2,026 kg
+Isp: 451 sec
+
+http://www.astronautix.com/a/atlasv.html
+
+es1 = 0,068
+es2 = 0,088
+
+------------------------------------------------------------------------------------
+
+Risposta di Chat GPT:
+Certainly! I’ll provide a list of two-stage-to-orbit rockets (tandem configuration, no external boosters) that have a payload capacity of around **5,000 kg** to Low Earth Orbit (LEO). These rockets fit the criteria you've specified:
+
+---
+
+### 1. **Falcon 9 (SpaceX)**  
+- **Configuration:** Tandem, no external boosters  
+- **Payload to LEO:** ~22,800 kg (for standard configuration)  
+- **First Stage:**  
+  - *Engine:* Merlin 1D  
+  - *Specific Impulse:* 282 seconds (sea level), 311 seconds (vacuum)  
+  - *Structural Mass Index:* 0.051 (dry mass ~22,200 kg, propellant mass ~411,000 kg)  
+- **Second Stage:**  
+  - *Engine:* Merlin Vacuum  
+  - *Specific Impulse:* 348 seconds (vacuum)  
+  - *Structural Mass Index:* 0.036 (dry mass ~4,000 kg, propellant mass ~107,500 kg)  
+- **Payload Mass (around 5000 kg):** Falcon 9’s standard capacity is significantly higher than 5,000 kg, but it can easily carry payloads around this size for certain missions.
+
+---
+
+### 2. **Atlas V (401 Configuration, ULA)**  
+- **Configuration:** Tandem, no external boosters  
+- **Payload to LEO:** ~5,500 kg (for 401 configuration, which is the smallest version)  
+- **First Stage:**  
+  - *Engine:* RD-180  
+  - *Specific Impulse:* 311 seconds (sea level), 338 seconds (vacuum)  
+  - *Structural Mass Index:* 0.069 (dry mass ~21,054 kg, propellant mass ~284,089 kg)  
+- **Second Stage (Centaur):**  
+  - *Engine:* RL10  
+  - *Specific Impulse:* 465 seconds (vacuum)  
+  - *Structural Mass Index:* 0.097 (dry mass ~2,243 kg, propellant mass ~20,830 kg)  
+- **Payload Mass (around 5000 kg):** The 401 configuration is capable of lifting payloads around 5,000 kg to LEO.
+
+---
+
+### 3. **Terran 1 (Relativity Space)**  
+- **Configuration:** Tandem, no external boosters  
+- **Payload to LEO:** ~1,250 kg (to a 500 km orbit), so this doesn’t reach 5,000 kg to LEO but is a promising smaller vehicle.  
+- **First Stage:**  
+  - *Engine:* Aeon 1 (9 engines)  
+  - *Specific Impulse:* ~300 seconds (vacuum)  
+  - *Structural Mass Index:* Estimated ~0.1 (dry mass ~9,280 kg, propellant mass ~87,200 kg)  
+- **Second Stage:**  
+  - *Engine:* Aeon Vacuum (1 engine)  
+  - *Specific Impulse:* ~345 seconds (vacuum)  
+  - *Structural Mass Index:* Estimated ~0.07 (dry mass ~1,780 kg, propellant mass ~25,200 kg)  
+- **Payload Mass (around 5000 kg):** While its current payload capacity is below 5,000 kg, its design is promising for future scaling to higher payloads.
+
+---
+
+### 4. **Soyuz 2.1b (Roscosmos)**  
+- **Configuration:** Tandem, no external boosters  
+- **Payload to LEO:** ~7,800 kg (which is slightly above 5,000 kg but worth including as an example of smaller tandem rockets with high efficiency)  
+- **First Stage:**  
+  - *Engine:* RD-107A  
+  - *Specific Impulse:* 300 seconds (sea level)  
+  - *Structural Mass Index:* ~0.082 (dry mass ~40,000 kg, propellant mass ~276,000 kg)  
+- **Second Stage:**  
+  - *Engine:* RD-0124  
+  - *Specific Impulse:* 350 seconds (vacuum)  
+  - *Structural Mass Index:* ~0.071 (dry mass ~6,000 kg, propellant mass ~40,000 kg)  
+- **Payload Mass (around 5000 kg):** Soyuz 2.1b is capable of delivering 5,000 kg to LEO with some margin for smaller payloads as well.
+
+---
+
+### 5. **GSLV Mk II (India)**  
+- **Configuration:** Tandem, no external boosters  
+- **Payload to LEO:** ~2,500–5,000 kg (depending on exact mission profile)  
+- **First Stage:**  
+  - *Engine:* S-139 (solid rocket boosters)  
+  - *Specific Impulse:* ~280 seconds (sea level)  
+  - *Structural Mass Index:* ~0.081 (dry mass ~33,000 kg, propellant mass ~200,000 kg)  
+- **Second Stage (GS2):**  
+  - *Engine:* Vikas  
+  - *Specific Impulse:* ~300 seconds (vacuum)  
+  - *Structural Mass Index:* ~0.060 (dry mass ~2,000 kg, propellant mass ~40,000 kg)  
+- **Payload Mass (around 5000 kg):** The GSLV Mk II can lift around 5,000 kg to LEO, depending on payload and trajectory.
+
+---
+
+### Summary:
+Here’s a quick list of rockets that fit your criteria for a 2-stage-to-orbit configuration and payload mass around 5,000 kg:
+1. **Falcon 9 (SpaceX)** – Highly capable, even for higher payloads.
+2. **Atlas V (401 Configuration, ULA)** – Close to 5,000 kg for LEO.
+3. **Terran 1 (Relativity Space)** – Small and emerging, currently below 5,000 kg but could scale up.
+4. **Soyuz 2.1b (Roscosmos)** – Slightly above, but close to 5,000 kg capacity.
+5. **GSLV Mk II (India)** – Payload around 5,000 kg for LEO.
+
+Let me know if you need more information or clarification on any of these rockets! 🚀
+
+------------------------------------------------------------------------------------
+
+BURN TIME OF FIRST STAGES
+
+Summary of First Stage Burn Times:
+Falcon 9 – 150  seconds
+Atlas V 401 – 255 seconds
+Terran 1 – 150  seconds
+Soyuz 2.1b – 160  seconds
+GSLV Mk II – 150  seconds
+
+------------------------------------------------------------------------------------
+(DISCARDED BEACUASE OF LATERAL BOOSTERS)
+Ariane 5:
+
+lift-off mass: 780 tons
+payload mass: 10 tons
+https://www.esa.int/Enabling_Support/Space_Transportation/Launch_vehicles/Ariane_5_ECA
+
+Specific impulse stage 1: 335 sec
+Specific impulse vacuum: 434 sec
+http://www.astronautix.com/a/ariane5-1epc.html
+
+Stage 1:
+Dry mass: 14700 kg
+Propellant mass: 170 tons
+Isp: 310 sec
+
+Stage 2:
+Dry mass: 4540 kg
+Propellant mass: 14.9 tons
+Isp: 446 sec
+
+https://courses.edx.org/asset-v1%3ADelftX%2BAEASM1x%2B1T2022%2Btype%40asset%2Bblock/Ariane5_Users-Manual_October2016_Red.pdf

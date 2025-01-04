@@ -5,9 +5,9 @@
 clear, clc
 close all
 
-% Assumption on t_burn of 200 seconds from literature (e.g. slides dello
-% staging)
-t_burn = 200;
+% Assumption on t_burn of 150 seconds from similar rockets 
+% From the slides about stagin tburn is always considered around 200 seconds
+t_burn = 150;
 
 Is1 = 250;              % [s]
 Is2 = 340;              % [s]
@@ -50,26 +50,40 @@ TW_case_c = computeTW(Is_case_c(1), mtot_case_c, mprop_case_c(1), t_burn);
 clear, clc
 close all
 
+% Assumption on t_burn of 200 seconds from literature (e.g. slides dello
+% staging)
+% NOTE: Similar rockets are more on the 150 seconds side
+t_burn = 150;
+
 % Is1 = 250;              % [s]
 % Is2 = 410;              % [s]
 % eps1 = 0.07;
 % eps2 = 0.15;
 
-Is1 = 250;              % [s]
-Is2 = 410;              % [s]
-%Is3 = 300;              % [s]
+% Is1 = 250;              % [s]
+% Is2 = 410;              % [s]
+% %Is3 = 300;              % [s]
+% eps1 = 0.07;
+% %eps2 = 0.15;
+% eps3 = 0.15;
+
+% Consider data similar to Atlas V and data from other rockets
+Is1 = 300; % [s]
+Is2 = 400; % [s]
+
 eps1 = 0.07;
-%eps2 = 0.15;
-eps3 = 0.15;
+eps2 = 0.1;
+
 m_pay = 5000;           % [kg]
 dv = 10;                % [km/s]
-m_tot_3STO = 220420;    % [kg]
+[~, m_tot_3STO, ~] = TANDEM([250 340 410]', [0.07 0.11 0.15]', dv, m_pay, 0);
 
 %CASE 2: Is1'=Is1, Is2'=Is2, eps1'=eps1, eps2'=eps3
 Is_case_2 = [Is1, Is2]';
-eps_case_2 = [eps1, eps3]';
+eps_case_2 = [eps1, eps2]';
 [m_case_2, mtot_case_2, mprop_case_2] = TANDEM(Is_case_2, eps_case_2, dv, m_pay, 0);
-dm_perc_2 = (mtot_case_2 - m_tot_3STO)/m_tot_3STO; %percentage of increase mass compared to 3STO 
+dm_perc_2 = (mtot_case_2 - m_tot_3STO)/m_tot_3STO*100; %percentage of increase mass compared to 3STO 
+TW_case_2 = computeTW(Is_case_2(1), mtot_case_2, mprop_case_2(1), t_burn);
 
 %%
 
