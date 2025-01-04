@@ -50,21 +50,28 @@ for i1 = 1:length(eps1_vect)
 end
 toc
 
-m = m_tot_vect(1,1,:,6,6);
-
-plot(m_tot_vect(:,:,:,6,6), eps1_vect)
+% m = m_tot_vect(1,1,:,6,6);
+% 
+% plot(m_tot_vect(:,:,:,6,6), eps1_vect)
 
 m_tot_vec = squeeze(m_tot_vect);
 m_stag_vec = squeeze(m_stag_vect);
 m_prop_vec = squeeze(m_prop_vect);
 
-scatter3(eps_mat(:,1), eps_mat(:,2), eps_mat(:,3), 40, m_tot_vec(:), 'filled')
-colorbar
+% scatter3(eps_mat(:,1), eps_mat(:,2), eps_mat(:,3), 40, m_tot_vec(:), 'filled')
+% colorbar
 
-figure; hold on; grid on;
+%%
+
+fig = figure; hold on; grid on;
 plot(eps1_vect(1:end-1), squeeze(m_tot_vec(1:end-1, end, end)), 'DisplayName', "$\varepsilon_1$");
 plot(eps2_vect(1:end-1), squeeze(m_tot_vec(end, 1:end-1, end)), 'DisplayName', "$\varepsilon_2$");
 plot(eps3_vect(1:end-1), squeeze(m_tot_vec(end, end, 1:end-1)), 'DisplayName', "$\varepsilon_3$");
+xline(eps1, 'k--', "Nominal $\varepsilon_1$", 'Interpreter','latex', 'HandleVisibility','off');
+xline(eps2, 'k--', "Nominal $\varepsilon_2$", 'Interpreter','latex', 'HandleVisibility','off');
+xline(eps3, 'k--', "Nominal $\varepsilon_3$", 'Interpreter','latex', 'HandleVisibility','off');
 xlabel("$\varepsilon$", 'Interpreter','latex');
 ylabel("GLOM");
 legend("Interpreter","latex")
+
+exportStandardizedFigure(fig, "GLOM_Sens", 0.5, 'addMarkers', false, 'forcedMarkers', 1, 'legendLocation', 'south', 'overwriteFigure', true);
