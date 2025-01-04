@@ -5,6 +5,10 @@
 clear, clc
 close all
 
+% Assumption on t_burn of 200 seconds from literature (e.g. slides dello
+% staging)
+t_burn = 200;
+
 Is1 = 250;              % [s]
 Is2 = 340;              % [s]
 Is3 = 410;              % [s]
@@ -13,25 +17,29 @@ eps2 = 0.11;
 eps3 = 0.15;
 m_pay = 5000;           % [kg]
 dv = 10;                % [km/s]
-m_tot_3STO = 220420;    % [kg]
+[~, m_tot_3STO, ~] = TANDEM([Is1 Is2 Is3]', [eps1 eps2 eps3]', dv, m_pay, 0);
+% m_tot_3STO = 220420;    % [kg]
 
 %CASE a: Is1'=Is1, Is2'=Is2
 Is_case_a = [Is1, Is2]';
 eps_case_a = [eps1, eps2]';
 [m_case_a, mtot_case_a, mprop_case_a] = TANDEM(Is_case_a, eps_case_a, dv, m_pay, 0);
-dm_perc_a = (mtot_case_a - m_tot_3STO)/m_tot_3STO; %percentage of increase mass compared to 3STO 
+dm_perc_a = (mtot_case_a - m_tot_3STO)/m_tot_3STO*100; %percentage of increase mass compared to 3STO 
+TW_case_a = computeTW(Is_case_a(1), mtot_case_a, mprop_case_a(1), t_burn);
 
 %CASE b: Is1'=Is2, Is2'=Is3
 Is_case_b = [Is2, Is3]';
 eps_case_b = [eps2, eps3]';
 [m_case_b, mtot_case_b, mprop_case_b] = TANDEM(Is_case_b, eps_case_b, dv, m_pay, 0);
-dm_perc_b = (mtot_case_b - m_tot_3STO)/m_tot_3STO; %percentage of increase mass compared to 3STO
+dm_perc_b = (mtot_case_b - m_tot_3STO)/m_tot_3STO*100; %percentage of increase mass compared to 3STO
+TW_case_b = computeTW(Is_case_b(1), mtot_case_b, mprop_case_b(1), t_burn);
 
 %CASE c: Is1'=Is1, Is2'=Is3
 Is_case_c = [Is1, Is3]';
 eps_case_c = [eps1, eps3]';
 [m_case_c, mtot_case_c, mprop_case_c] = TANDEM(Is_case_c, eps_case_c, dv, m_pay, 0);
-dm_perc_c = (mtot_case_c - m_tot_3STO)/m_tot_3STO; %percentage of increase mass compared to 3STO
+dm_perc_c = (mtot_case_c - m_tot_3STO)/m_tot_3STO*100; %percentage of increase mass compared to 3STO
+TW_case_c = computeTW(Is_case_c(1), mtot_case_c, mprop_case_c(1), t_burn);
 
 %CHECK THE T/W RATIOS TO SEE IF THE MISSION CAN BE ACCOMPLISHED
 
@@ -62,3 +70,10 @@ Is_case_2 = [Is1, Is2]';
 eps_case_2 = [eps1, eps3]';
 [m_case_2, mtot_case_2, mprop_case_2] = TANDEM(Is_case_2, eps_case_2, dv, m_pay, 0);
 dm_perc_2 = (mtot_case_2 - m_tot_3STO)/m_tot_3STO; %percentage of increase mass compared to 3STO 
+
+%%
+
+function TW = computeTW(Isp, m_tot, m_prop, t_burn)
+    m_dot = m_prop/t_burn;
+    TW = m_dot*Isp/(m_tot);
+end
