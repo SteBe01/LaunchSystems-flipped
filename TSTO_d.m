@@ -13,9 +13,9 @@ dv = 10;                % [km/s] dv required. dv_req = dv_id + dv_loss
 beta = 1;
 
 %Assumptions:
-Is1 = 250;              % [s]
+Is1 = 340;              % [s]
 Is2 = 410;              % [s]
-eps1 = 0.07;
+eps1 = 0.11;
 eps2 = 0.15;
 dv_loss = 1.68;          % [km/s] assumed dv_loss (real gravity loss of saturn V by Edberg Costa)
 

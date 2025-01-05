@@ -73,15 +73,15 @@ MASS.prop1 = MASS.stg1 * (1-e(1));
 
 figure(1);
 plot(alpha, M_tot);
-xlabel('alpha');
-ylabel('M_{tot} [kg]');
+xlabel('$\alpha$ [-]', 'Interpreter', 'latex');
+ylabel('GLOM [kg]', 'Interpreter', 'latex');
 grid on
 
 figure(2);
 v_staging = dv1 - beta * dv_loss;
 plot(v_staging, M_tot);
-xlabel('Staging speed [km/s]');
-ylabel('M_{tot} [kg]');
+xlabel('Staging speed [km/s]', 'Interpreter', 'latex');
+ylabel('GLOM [kg]', 'Interpreter', 'latex');
 grid on
 
 end
